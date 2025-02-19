@@ -43,7 +43,7 @@ fun ImsecureSection() {
     Column(
         modifier = Modifier
             .height(260.dp)
-            .padding(4.dp)
+            .padding(0.dp)
             .fillMaxSize()
             .background(Color.White),
         verticalArrangement = Arrangement.Center,

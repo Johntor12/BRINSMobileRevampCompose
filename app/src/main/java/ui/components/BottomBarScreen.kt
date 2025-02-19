@@ -15,14 +15,14 @@ sealed class BottomBarScreen (
         title = "Beranda",
     )
 
-    object Polis: BottomBarScreen(
-        route = "polis",
-        title = "Polis",
+    object Produk: BottomBarScreen(
+        route = "produk",
+        title = "Cek Produk"
     )
 
-    object BrinsUpdate: BottomBarScreen(
-        route = "brinsupdate",
-        title = "BRINS Update"
+    object Polis: BottomBarScreen(
+        route = "polis",
+        title = "Cek Polis",
     )
 
     object Profil: BottomBarScreen(

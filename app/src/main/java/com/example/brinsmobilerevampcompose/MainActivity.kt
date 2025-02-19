@@ -21,8 +21,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.brinsmobilerevampcompose.ui.theme.BrinsMobileRevampComposeTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
@@ -31,6 +35,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonDarkBlueLinear1
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonLightBlueLinear1
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonLightBlueLinear1
@@ -38,7 +43,13 @@ import com.example.brinsmobilerevampcompose.ui.theme.poppinsFontFamily
 import ui.components.BRINSMobileAppTopBar
 import ui.components.FiturUnggulanCard
 import ui.components.FiturUnggulanSection
+import ui.components.HubungiKamiSection
+import ui.components.ImsecureSection
+import ui.components.LayananSection
 import ui.components.PertanyaanPentingSection
+import ui.screens.LayananScreen
+import ui.screens.Screen
+import ui.screens.home.HomeScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -50,23 +61,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BrinsMobileRevampComposeTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    containerColor = MaterialTheme.colorScheme.background,
-                    topBar = {
-                        BRINSMobileAppTopBar()
-                    }
-                ) {
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        verticalArrangement = Arrangement.spacedBy(0.dp),
-                        contentPadding = PaddingValues(0.dp)
-                    ) {
-//                        item { FiturUnggulanSection() }
-//                        item { PertanyaanPentingSection() }
-                    }
-                }
+                HomeScreen(navHost = rememberNavController())
             }
         }
     }

@@ -81,7 +81,7 @@ fun PertanyaanPentingSection() {
     Column(
         modifier = Modifier
             .height(240.dp)
-            .padding(4.dp)
+            .padding(0.dp)
             .fillMaxSize()
             .background(Color.White),
         verticalArrangement = Arrangement.Center,

@@ -1,23 +1,28 @@
-package ui.screens.home
-import android.os.Bundle
-import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.compose.foundation.layout.*
+package ui.screens
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
 import ui.components.BRINSMobileAppTopBar
 import ui.components.FiturUnggulanSection
+import ui.components.HubungiKamiSection
 import ui.components.ImsecureSection
+import ui.components.LayananSection
 import ui.components.PertanyaanPentingSection
 
 @Composable
-fun HomeScreen(navHost: NavHostController) {
+fun LayananScreen () {
     var scrollOffset = remember { mutableStateOf(0) }
     val scrollState = rememberLazyListState()
 
@@ -31,7 +36,8 @@ fun HomeScreen(navHost: NavHostController) {
         topBar = {
             BRINSMobileAppTopBar(scrollOffset = scrollOffset.value)
         },
-        content = { paddingValues ->
+        content = {
+                paddingValues ->
             LazyColumn(
                 state = scrollState,
                 modifier = Modifier
@@ -40,9 +46,8 @@ fun HomeScreen(navHost: NavHostController) {
                 verticalArrangement = Arrangement.spacedBy(0.dp),
                 contentPadding = PaddingValues(0.dp)
             ) {
-                item { FiturUnggulanSection(navController = navHost) }
-                item { PertanyaanPentingSection() }
-                item { ImsecureSection() }
+                item { LayananSection() }
+                item { HubungiKamiSection() }
             }
         }
     )

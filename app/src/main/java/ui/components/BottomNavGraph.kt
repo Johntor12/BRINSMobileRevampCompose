@@ -5,6 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import ui.screens.LayananScreen
 import ui.screens.home.HomeScreen
 
 @Composable
@@ -23,6 +24,9 @@ fun BottomNavGraph(navController: NavHostController) {
             HomeScreen(
                 navHost = navController
             )
+        }
+        composable(route = "layanan") {
+            LayananScreen()
         }
     }
 }

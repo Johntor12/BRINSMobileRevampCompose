@@ -48,6 +48,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.em
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.example.brinsmobilerevampcompose.R
 import com.example.brinsmobilerevampcompose.ui.theme.BlackTextFiturUnggulanCardDesc
 import com.example.brinsmobilerevampcompose.ui.theme.BlueTextFiturUnggulanCardTitle
@@ -77,7 +80,7 @@ val fiturUnggulanDatas = listOf(
     FeatureData(
         descFeatureData = "Klaim, Call Center, Bengkel, dll hanya disini, cek ya",
         titleFeatureData = "Pusat Layanan",
-        iconFeatureData = R.drawable.phone_icon_brins_mobile
+        iconFeatureData = R.drawable.phone_icon_brins_mobile,
     ),
     FeatureData(
         descFeatureData = "Halo sobat BRINS, yuk cek product asuransi dari kami!",
@@ -88,13 +91,12 @@ val fiturUnggulanDatas = listOf(
 
 //
 //
-@Preview
 @Composable
-fun FiturUnggulanSection() {
+fun FiturUnggulanSection(navController: NavController) {
     Column(
         modifier = Modifier
             .height(360.dp)
-            .padding(4.dp)
+            .padding(0.dp)
             .fillMaxSize()
             .background(Color.White),
         verticalArrangement = Arrangement.Center,
@@ -135,10 +137,12 @@ fun FiturUnggulanSection() {
         ) {
             fiturUnggulanDatas.forEach { data ->
                 FiturUnggulanCard(
+                    navController = navController,
                     modifier = Modifier.weight(1f),
                     titleFeature = data.titleFeatureData,
                     iconFeature = data.iconFeatureData,
                     descFeature = data.descFeatureData,
+                    onClickFeature = { navController.navigate("layanan") }
                 )
             }
 
@@ -152,13 +156,13 @@ fun FiturUnggulanSection() {
 //@Preview
 @Composable
 fun FiturUnggulanCard(
+    navController: NavController,
     titleFeature: String = "Pusat Layanan",
     iconFeature: Int = 1,
     descFeature: String = "Klaim, Call Center, Bengkel, dll hanya disini, cek ya!",
     onClickFeature: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-
     val colorTextHeader = ButtonDarkBlueLinear1
     val colorTextTitle = BlueTextFiturUnggulanCardTitle
     val colorOrange = ButtonOrangeLinear1
@@ -184,7 +188,7 @@ fun FiturUnggulanCard(
             .height(284.dp)
             .padding(16.dp)
             .shadow(
-                elevation = 20.dp,
+                elevation = 4.dp,
                 shape = RoundedCornerShape(16.dp)
             )
             .clip(RoundedCornerShape(16.dp)),
@@ -249,7 +253,9 @@ fun FiturUnggulanCard(
                     modifier = Modifier
                         .weight(0.55f)
                         .height(32.dp),
-                    onClick = onClickFeature,
+                    onClick = {
+                        onClickFeature()
+                    },
                     shape = RoundedCornerShape(50),
                     colors = ButtonDefaults.textButtonColors(backgroundColor = colorOrange)
                 ) {

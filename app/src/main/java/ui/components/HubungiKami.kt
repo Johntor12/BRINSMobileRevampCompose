@@ -35,32 +35,32 @@ import com.example.brinsmobilerevampcompose.ui.theme.GrayTextFiturUnggulanDesc
 import com.example.brinsmobilerevampcompose.ui.theme.poppinsFontFamily
 
 
-data class Service(
-    val serviceName: String,
-    val serviceIcon: Int,
-    val serviceOnClick: @Composable (() -> Unit)? = {}
+data class CallUs(
+    val hubungiKamiName: String,
+    val hubungiKamiIcon: Int,
+    val hubungiKamiOnClick: @Composable (() -> Unit)? = {}
 )
 
-val listIcon = listOf(
-    R.drawable.klaim_service_icon,
-    R.drawable.lacak_kirim_service_icon,
-    R.drawable.bengkel_rekanan_service_icon,
-    R.drawable.ticket_service_icon,
-    R.drawable.location_service_icon
+val hubungiKamiIcon = listOf(
+    R.drawable.live_chat_melisha_hubungikami,
+    R.drawable.call_center_hubungikami,
+    R.drawable.kirim_email,
+    R.drawable.whatsapp_icon_hubungikami,
+    R.drawable.call_center_bebas_pulsa_hubungikami
 )
 
-val serviceList = mutableListOf(
-    Service("Klaim", R.drawable.klaim_service_icon),
-    Service("Lacak Klaim", R.drawable.lacak_kirim_service_icon),
-    Service("Bengkel Rekanan", R.drawable.bengkel_rekanan_service_icon),
-    Service("Pengaduan", R.drawable.ticket_service_icon),
-    Service("Layanan Terdekat", R.drawable.location_service_icon)
+val hubungiKamiList = mutableListOf(
+    CallUs("Live Chat Melisha", R.drawable.live_chat_melisha_hubungikami),
+    CallUs("Call Center", R.drawable.call_center_hubungikami),
+    CallUs("Kirim Email", R.drawable.kirim_email),
+    CallUs("Whatsapp", R.drawable.whatsapp_icon_hubungikami),
+    CallUs("Call Center Bebas Pulsa", R.drawable.call_center_bebas_pulsa_hubungikami)
 )
 
 
 @Preview
 @Composable
-fun LayananSection() {
+fun HubungiKamiSection() {
     Column(
         modifier = Modifier
             .height(360.dp)
@@ -72,14 +72,14 @@ fun LayananSection() {
         Column(
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.Start
         ) {
             Column(modifier = Modifier) {
 //                Spacer(modifier = Modifier
 //                    .fillMaxWidth()
 //                    .height(10.dp))
                 Text(
-                    text = "Layanan",
+                    text = "Hubungi Kami",
                     fontSize = 15.sp,
                     fontFamily = poppinsFontFamily,
                     fontWeight = FontWeight.Bold,
@@ -87,7 +87,7 @@ fun LayananSection() {
                 )
 
                 Text(
-                    text = "Nikmati kemudahan berbagai layanan kami hanya dengan satu genggaman",
+                    text = "Kami siap 24 jam melayani dengan aman, nyaman dan cepat",
                     fontSize = 10.sp,
                     fontFamily = poppinsFontFamily,
                     fontWeight = FontWeight.W400,
@@ -103,18 +103,18 @@ fun LayananSection() {
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                serviceList.forEach { data ->
+                hubungiKamiList.forEach { data ->
                     item() {
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            LayananCard(
+                            HubungiKamiCard(
                                 modifier = Modifier,
-                                layananIcon = data.serviceIcon
+                                hubungiKamiIcon = data.hubungiKamiIcon
                             )
                             Text(
-                                data.serviceName,
+                                data.hubungiKamiName,
                                 fontFamily = poppinsFontFamily,
                                 fontSize = 10.sp,
                                 textAlign = TextAlign.Center
@@ -130,10 +130,10 @@ fun LayananSection() {
 
 @Preview
 @Composable
-fun LayananCard(
+fun HubungiKamiCard(
     modifier: Modifier = Modifier,
-    layananIcon: Int = R.drawable.klaim_service_icon,
-    layananOnClick: () -> Unit = {}
+    hubungiKamiIcon: Int = R.drawable.klaim_service_icon,
+    hubungiKamiOnClick: () -> Unit = {}
 ) {
 
     Card(
@@ -149,7 +149,7 @@ fun LayananCard(
         ) {
             Image(
                 modifier = Modifier,
-                painter = painterResource(layananIcon), contentDescription = "Layanan Icon"
+                painter = painterResource(hubungiKamiIcon), contentDescription = "Hubungi Kami Icon"
             )
         }
     }

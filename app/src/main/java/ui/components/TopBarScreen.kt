@@ -23,6 +23,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonDarkBlueLinear1
@@ -54,13 +56,15 @@ fun BRINSMobileAppTopBar(
     usernameAccount: String = "Winni Indah Kurniasari",
     protectionActiveCount: Int = 10,
     protectionInactiveCount: Int = 3,
-    protectionExpiredCount: Int = 5
+    protectionExpiredCount: Int = 5,
+    scrollOffset: Int
 ) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
             .height(140.dp),
-        shape = RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp)
+        shape = RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp),
+        color = Color.Transparent
     ) {
         Box(
             modifier = Modifier
@@ -186,8 +190,8 @@ fun BRINSMobileAppTopBar(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .weight(0.7f),
-                            horizontalArrangement = Arrangement.SpaceBetween
+                                .weight(0.9f),
+                            horizontalArrangement = Arrangement.spacedBy(24.dp)
                         ) {
                             proteksiData.mapKeys {
                                 Column(
@@ -210,7 +214,7 @@ fun BRINSMobileAppTopBar(
                         }
                         Spacer(
                             modifier = Modifier
-                                .weight(0.3f)
+                                .weight(0.1f)
                         )
                     }
                 }
