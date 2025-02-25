@@ -26,7 +26,9 @@ fun BottomNavGraph(navController: NavHostController) {
             )
         }
         composable(route = "layanan") {
-            LayananScreen()
+            LayananScreen(
+                navController = navController
+            )
         }
     }
 }

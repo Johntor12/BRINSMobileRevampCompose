@@ -40,6 +40,7 @@ import com.example.brinsmobilerevampcompose.ui.theme.ButtonDarkBlueLinear1
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonLightBlueLinear1
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonLightBlueLinear1
 import com.example.brinsmobilerevampcompose.ui.theme.poppinsFontFamily
+import navigation.BRINSNavHost
 import ui.components.BRINSMobileAppTopBar
 import ui.components.FiturUnggulanCard
 import ui.components.FiturUnggulanSection
@@ -61,7 +62,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BrinsMobileRevampComposeTheme {
-                HomeScreen(navHost = rememberNavController())
+                BRINSNavHost()
             }
         }
     }

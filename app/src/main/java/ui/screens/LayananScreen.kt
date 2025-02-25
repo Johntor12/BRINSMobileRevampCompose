@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import ui.components.BRINSMobileAppTopBar
 import ui.components.FiturUnggulanSection
 import ui.components.HubungiKamiSection
@@ -22,7 +23,9 @@ import ui.components.LayananSection
 import ui.components.PertanyaanPentingSection
 
 @Composable
-fun LayananScreen () {
+fun LayananScreen (
+    navController: NavController
+) {
     var scrollOffset = remember { mutableStateOf(0) }
     val scrollState = rememberLazyListState()
 

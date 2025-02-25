@@ -29,6 +29,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonDarkBlueLinear1
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonDarkBlueLinear2
 import com.example.brinsmobilerevampcompose.ui.theme.ButtonLightBlueLinear1
@@ -152,8 +154,8 @@ fun PertanyaanPentingCard(
     colorPertanyaanCard1: Color = ButtonOrangeLinear1,
     colorPertanyaanCard2: Color = ButtonOrangeLinear2,
     onClickSelengkapnyaCard: () -> Unit = {},
-    modifier: Modifier = Modifier
-) {
+    modifier: Modifier = Modifier,
+    ) {
     Card(
         modifier = Modifier
             .width(110.dp)
